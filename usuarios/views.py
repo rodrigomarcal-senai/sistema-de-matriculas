@@ -10,10 +10,10 @@ def cadastrar_usuario(request):
 
         if form.is_valid():
             form.save(commit=True)
-            return redirect("login")
+            return redirect("usuarios:login")
     else:
         form = CadastrarUsuarioForm()
-    
+
     context = {"form": form}
     return render(request, "usuarios/registro.html", context)
 
