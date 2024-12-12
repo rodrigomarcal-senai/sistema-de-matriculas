@@ -5,4 +5,3 @@ show-fixes = true
 [format]
 docstring-code-format = true
 docstring-code-line-length = 79
-skip-magic-trailing-comma = true
