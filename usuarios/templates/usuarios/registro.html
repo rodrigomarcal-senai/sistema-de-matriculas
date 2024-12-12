@@ -1,0 +1,9 @@
+{% extends 'usuarios/base.html' %}
+
+{% block content %}
+    <form action="/usuarios/cadastro/" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Cadastrar-se">
+    </form>
+{% endblock %}
