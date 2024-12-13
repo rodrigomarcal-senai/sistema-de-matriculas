@@ -25,7 +25,7 @@ def login_usuario(request):
         if form.is_valid():
             usuario = form.get_user()
             login(request, usuario)
-            return redirect("inicio")
+            return redirect("cursos:index")
     else:
         form = LoginUsuarioForm()
 

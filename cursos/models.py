@@ -4,20 +4,20 @@ from django.db import models
 class Coordenacao(models.Model):
     cod_coordenacao = models.AutoField(primary_key=True)
     cod_diretoria = models.ForeignKey(
-        "Diretoria", on_delete=models.SET_NULL, db_column="cod_diretoria"
+        "Diretoria", on_delete=models.DO_NOTHING, db_column="cod_diretoria"
     )
     nome_coordenacao = models.CharField(max_length=50, blank=True, null=True)
     nome_responsavel = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "coordenacao"
 
 
 class Curso(models.Model):
     cod_curso = models.AutoField(primary_key=True)
     cod_coordenacao = models.ForeignKey(
-        "Coordenacao", on_delete=models.SET_NULL, db_column="cod_coordenacao"
+        "Coordenacao", on_delete=models.DO_NOTHING, db_column="cod_coordenacao",
     )
     nome_curso = models.CharField(max_length=50, blank=True, null=True)
     informacoes_curso = models.CharField(max_length=100, blank=True, null=True)
@@ -30,7 +30,7 @@ class Curso(models.Model):
     referencias = models.CharField(max_length=300, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "curso"
 
 
@@ -40,5 +40,5 @@ class Diretoria(models.Model):
     nome_responsavel = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "diretoria"
