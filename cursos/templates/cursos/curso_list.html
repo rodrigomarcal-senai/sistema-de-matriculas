@@ -2,7 +2,12 @@
 
 {% block content %}
     {% for curso in page_obj %}
-        {{ curso.nome_curso|upper }}<br>
+        <div>
+            <span>{{ curso.nome_curso|upper }}</span>
+            <a href="{% url 'cursos:detalhes' curso.cod_curso %}">Detalhes</a>
+        </div>
+    {% empty %}
+        <p>Não há cursos disponíveis no momento</p>
     {% endfor %}
 
 <div class="pagination">
